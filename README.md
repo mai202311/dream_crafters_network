@@ -1,5 +1,5 @@
 <h1 align="center">
- 明晰夢を見るためのすゝめ
+ 明晰夢のすゝめ
 </h1>
 
 ​
@@ -47,14 +47,18 @@
 - 少し不思議な気持ちになりたい時
 
 
-## 設計書
+## *設計書*
 <!--テーマを設定・提出する時点では不要です-->
 後ほど作成予定。
 ​
-## 開発環境
+## *開発環境*
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## *実装機能リスト*
+
+<https://docs.google.com/spreadsheets/d/1QTI3v8d9d9o4dh4Op2DqRdqe-VtyVcsBIYkuna3eVEk/edit?usp=sharing>
 ​
