@@ -50,6 +50,11 @@
 ## *設計書*
 <!--テーマを設定・提出する時点では不要です-->
 後ほど作成予定。
+
+## *実装機能リスト*
+
+<https://docs.google.com/spreadsheets/d/1QTI3v8d9d9o4dh4Op2DqRdqe-VtyVcsBIYkuna3eVEk/edit?usp=sharing>
+​
 ​
 ## *開発環境*
 - OS：Linux(CentOS)
@@ -58,7 +63,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## *実装機能リスト*
-
-<https://docs.google.com/spreadsheets/d/1QTI3v8d9d9o4dh4Op2DqRdqe-VtyVcsBIYkuna3eVEk/edit?usp=sharing>
-​
