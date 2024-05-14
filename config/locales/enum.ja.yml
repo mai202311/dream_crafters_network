@@ -1,0 +1,7 @@
+ja:
+  enums:
+    post:
+      status:
+        is_public: 公開済
+        is_private: 非公開
+        is_draft: 下書き

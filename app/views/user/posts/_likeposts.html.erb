@@ -1,0 +1,11 @@
+<%= link_to post.user.name, user_path(post.user.id) %>
+ <i class="fa fa-heart unlike-btn"></i>
+  <%= like_posts.likes.length %>
+  <%= link_to new_post.body, post_path(new_post.id) %>
+  <table>
+   <tr>
+    <td><%= link_to new_post.user.name, users_mypage_path %></td>
+    <td><%= link_to new_post.body,post_path(new_post.id) %></td>
+  </tr>
+
+  </table>

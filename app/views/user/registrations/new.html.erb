@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row d-flex align-items-center"style="padding: 30px;">
+    <div class="col-md-12 col-md-of text-center">
+      <div class="login">
+        <h1>新規登録</h1>
+        <%= form_with(model: @user, url: registration_path(@user)) do |f| %>
+    　　  　<%= render "user/shared/error_messages", resource: resource %>
+          <p class="field">
+            <%= f.label :name, for: "inputName" %><br>
+            <%= f.text_field :name, autofocus: true, id: "inputName"%>
+          </p>
+          <p class="field">
+            <%= f.label :email %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </p>
+          <p class="field">
+            <%= f.label :password %>
+            <em>(6 文字以上で入力)</em>
+            <br>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </p>
+          <p class="field">
+            <%= f.label :password_confirmation %><br>
+            <%= f.password_field :password_confirmation %>
+          </p>
+  
+          <div><%= f.submit "✔︎", class: 'btn btn-primary' %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

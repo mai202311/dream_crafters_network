@@ -1,0 +1,24 @@
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "User" %>
+    <tbody>
+
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがPoの時) -->
+    <tbody>
+      <% @posts.each do |new_post| %>
+        <tr>
+          <td><%= link_to new_post.body,post_path(new_post.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

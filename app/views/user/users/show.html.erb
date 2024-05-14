@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 col-md-of">
+      <%= link_to '＜戻る',posts_path, class: "btn btn-sm btn-secondary" %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end %>
+   　　<h2>マイページ</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>name</th>
+              <th><%= current_user.name %></th>
+              <th> メールアドレス： <%= current_user.email %> </th>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
+        <div class="tabs">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#section1"><%= current_user.name %>さんの投稿一覧</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#section2">非公開</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#section3">いいね</a>
+            </li>
+          </ul>
+        
+          <div class="tab-content">
+            <div id="section1" class="tab-pane fade show active">
+              <%= render "user/users/posts", posts: @my_posts %>
+            </div>
+            <div id="section2" class="tab-pane fade">
+              <%= render "user/users/posts", posts: @draft_posts %>
+            </div>
+            <div id="section3" class="tab-pane fade">
+              <%= render "user/users/posts", posts: @like_posts %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dreams Crafts Network App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/455cdc91f4.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <%= render 'layouts/header' %>
+    <main class="mb-auto">
+      <%= yield %>
+    </main>
+    <div class="fixed-bottom">
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>
+
+
+ 
+

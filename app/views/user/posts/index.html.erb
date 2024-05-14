@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-7 col-md-of">
+      <% if flash[:notice] %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end %>
+      <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+      <!-- ユーザーがログインしていた時の処理 -->
+        <h5> 現在 <%= current_user.name %> さんがログインしています </h5>
+        <% if @user == current_user %><!--本人にしか表示されない-->
+          <h4> <%= link_to "マイページ", mypage_path, class: "btn btn-secondary" %></h4>
+        <% else %>
+          <td></td>
+    　　<% end %>
+      <% else %>
+      <!-- ユーザーがログインしていなかった時の処理 -->
+        <h5> 現在ログインしていません </h5>
+        <h4><%= link_to "ログイン", new_user_session_path, class: 'post' %></h4><!-- ログイン画面に移行する -->
+        <h4><%= link_to "新規登録", new_user_registration_path, class: 'post' %></h4><!-- 新規登録画面に移行する -->
+      <% end %>
+      <%= link_to "新規投稿", new_post_path, class: "btn btn-info"  %> <!-- 新規投稿ボタン -->
+    </div>
+    <table class='col-md-5'style="padding: 10px;">
+      <tr>
+        <th><i class="fa-solid fa-tag"></i>
+          <%= link_to "夢日記", posts_dreams_path %>
+        </th>
+        <th>
+          <i class="fa-solid fa-tag"></i>
+          <%= link_to "明晰夢", posts_meisekimu_path %>
+        </th>
+        <th>
+          <i class="fa-solid fa-tag"></i>
+          <%= link_to "睡眠",  posts_others_path %>
+        </th>
+        <th>
+          <i class="fa-solid fa-tag"></i>
+          <%= link_to "その他", posts_others_path %>
+        </th>
+      </tr>
+    </table>
+      <!--%= render "user/searches/form" % --> <!-- キーワード検索の部分テンプレート -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col"> | 投稿者</th>
+          <th scope="col"> | 本文</th>
+          <th scope="col"> | カテゴリー</th>
+         </tr>
+      </thead>
+        <tbody>
+         <% @posts.each do |post| %>
+          <tr>
+            <th scope="row"><%= post.user.name %></th>
+            <td><%= link_to post.body,post_path(post.id) %></td>
+            <td><% post.tags.each do |tag| %>
+                <%= tag.name %>
+                <% end %>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

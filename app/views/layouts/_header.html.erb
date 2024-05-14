@@ -1,0 +1,21 @@
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">DreamCrafters Network</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
+            <il class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "nav-link" %></il>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

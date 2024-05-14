@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <p><%= link_to "＜戻る", mypage_path %></p>
+  		<h1>編集する</h1>
+  		<% if current_user.errors.any? %>
+      <%= current_user.errors.count %>件のエラーが発生しました
+      <ul>
+        <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+  　　</ul>
+　　　<% end %>
+  		<%= form_with model: current_user do |f| %>
+  		  <div class="form-group">
+  		  <h4>ユーザーネーム</h4>
+  		  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+        </div>
+        <div class="form-group">
+          <%= f.submit '更新' %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
