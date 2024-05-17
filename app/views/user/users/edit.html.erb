@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <p><%= link_to "＜戻る", mypage_path %></p>
+    <div class=" col-md-2">
+    <div class="mx-auto p-2" style="width: 200px;"></div><!-- 余白 -->
+        <%= link_to "＜戻る", mypage_path,class: "btn btn-sm btn-secondary" %>
+    </div>
+    <div class="col-md-8 mx-auto">
   		<h1>編集する</h1>
   		<% if current_user.errors.any? %>
       <%= current_user.errors.count %>件のエラーが発生しました

@@ -7,7 +7,7 @@ class User::UsersController < ApplicationController
     else
     @my_posts = current_user.posts
     @draft_posts = current_user.draft_posts
-    @like_posts =  current_user.posts.joins(:likes)#joinsでpostsテーブルとlikesテーブルを結合
+    @like_posts = Post.joins(:likes).where(likes: {user_id: current_user.id})#joinsでpostsテーブルとlikesテーブルを結合
     end
   end
 
@@ -24,6 +24,8 @@ class User::UsersController < ApplicationController
           render :edit
       end
   end
+  
+  
 
   private
   def set_user

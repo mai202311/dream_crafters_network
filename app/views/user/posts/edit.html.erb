@@ -8,25 +8,7 @@
     </div>
     <div class="col-md-10 col-md-of">
       <h4>投稿を編集する</h4>
-       <%= form_with model: @post do |f| %>
-          <%= f.label :body, '投稿内容' %></br>
-          <%= f.text_area :body, class:'form-control' %></br>
-          <%= f.select :category, [["夢日記", "dreams"], ["明晰夢", "meisekimu"], ["睡眠", "sleeps"],["その他", "others"]], include_blank: "どの投稿？" %>
-      <!-- 下書き -->
-       <div class="mt-4 pb-3">
-          <% if @post.is_draft? %>
-            <%= f.collection_select :status, Post.statuses_i18n, :first, :last %>
-          <% else %>
-            <%= f.collection_select :status, Post.statuses_i18n.reject { |k, v| k == 'is_draft' }, :first, :last %>
-          <% end %>
-        </div>
-        <div class="mt-4 pb-3">
-          <%= f.submit '更新する', class: "btn btn-success mt-4" %>
-        </div>
-        <div class="pb-3">
-          <u><%= link_to "投稿を削除",post_path(@post.id), method: :delete, data: {confirm: "この投稿を削除しますか？"}, class: "btn btn-danger" %></u>
-        </div>
-      <% end %>
+      <%= render 'user/posts/form', post: @post %>
     </div>
   </div>
 </div>

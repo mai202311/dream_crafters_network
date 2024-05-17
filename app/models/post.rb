@@ -8,9 +8,8 @@ class Post < ApplicationRecord
   with_options presence: true, on: :publicize do
   end
 
-  enum status: { is_public: 0, is_private: 1, is_draft: 2 }
+  enum status: { is_public: 0, is_private: 1, is_draft: 2 } #1が下書き
 
-  scope :drafts, -> { where(status: is_draft) }
 
   validates :body, length: { in: 3..80 } #投稿本文のバリデーション３〜８０文字
 
