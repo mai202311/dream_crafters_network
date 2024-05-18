@@ -5,7 +5,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.public_posts
     @user = current_user
     @tag_list = Tag.all
   end
@@ -28,32 +28,27 @@ class User::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    # ①下書きの更新（公開）の場合
+    # ①h非公開の更新（公開）の場合
     @post.assign_attributes(post_params)
-    if !@post.is_draft?
+    if !@post.is_private?
       # 公開時にバリデーションを実施
       # updateメソッドにはcontextが使用できないため、公開処理にはattributesとsaveメソッドを使用する
       if @post.save(context: :publicize)
          flash[:notice] = "投稿を更新しました！"
-         redirect_to post_path(@post.id)
+         redirect_to posts_path
       else
         #@post.status = :is_draft
         flash[:notice] = "投稿を更新できませんでした。入力内容をご確認のうえ再度お試しください"
         render :edit
       end
-    # ②非公開投稿の更新の場合
+    # ②t通常更新の場合
     else
       if @post.save
         flash[:notice] = "投稿を更新しました！"
-        redirect_to post_path(@post.id)
+        redirect_to posts_path
       else
         flash[:notice] =  "投稿を更新できませんでした。再度お試しください"
         render :edit
-      end
-      if @post.update(post_params)
-         redirect_to posts_path
-      else
-       render :edit
       end
     end
   end
@@ -72,19 +67,19 @@ class User::PostsController < ApplicationController
   end
   #カテゴリに関連するページ
   def dreams
-    @posts = Post.all
+    @posts = Post.where(category: "dreams")
   end
 
   def meisekimu
-    @posts = Post.all
+    @posts = Post.where(category: "meisekimu")
   end
 
   def sleeps
-    @posts = Post.all
+    @posts = Post.where(category: "sleeps")
   end
 
   def others
-    @posts = Post.all
+    @posts = Post.where(category: "others")
   end
 
 

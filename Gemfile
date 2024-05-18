@@ -56,8 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise-i18n-views'
-gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
-gem 'cancancan' #admin権限管理 gem
 gem 'rails-i18n'
 gem 'bootstrap-sass', '3.3.6' #ナビゲーションバーのdropdown
 #gem 'jquery-rails' #ナビゲーションバーのdropdown

@@ -1,12 +1,16 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
+  def index
+     @users = User.all
+  end
+  
   def show
     if current_user.email === 'guest@example.com'
       reset_session
       redirect_to new_user_registration_path
     else
-    @my_posts = current_user.posts
-    @draft_posts = current_user.draft_posts
+    @public_posts = current_user.public_posts
+    @private_posts = current_user.private_posts
     @like_posts = Post.joins(:likes).where(likes: {user_id: current_user.id})#joinsでpostsテーブルとlikesテーブルを結合
     end
   end

@@ -36,10 +36,10 @@
       
         <div class="tab-content">
           <div id="section1" class="tab-pane fade show active">
-            <%= render "user/users/posts", posts: @my_posts %>
+            <%= render "user/users/posts", posts: @public_posts %>
           </div>
           <div id="section2" class="tab-pane fade">
-            <%= render "user/users/posts", posts: @draft_posts %>
+            <%= render "user/users/posts", posts: @private_posts %>
           </div>
           <div id="section3" class="tab-pane fade">
             <%= render "user/users/posts", posts: @like_posts %>

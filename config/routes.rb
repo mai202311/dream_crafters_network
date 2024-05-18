@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_scope :user do
     post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
     get 'users/guest_sign_out', to: 'user/sessions#destroy', as: 'delete_guest_user'
@@ -28,13 +28,13 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]  #post_commentsコントローラへのルーティング
     resources :likes, only: [ :create, :destroy]
     end
-    resources :users, only: [:edit, :update]
+    resources :users, only: [:index, :edit, :update]
     #resources :tags,except: [:new, :show]
   end
 
-  devise_for :admin, controllers: {
-    sessions: "admin/sessions"
-  }
+  #devise_for :admin, controllers: {
+    #sessions: "admin/sessions"
+  #}
 
   namespace :admin do
         get '/' => 'homes#top'

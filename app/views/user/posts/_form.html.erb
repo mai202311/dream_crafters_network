@@ -7,11 +7,7 @@
   </div>
    <!-- 下書き -->
   <div class="mt-4 pb-3">
-    <% if post.is_draft? %>
-      <%= f.collection_select :status, Post.statuses_i18n, :first, :last %>
-    <% else %>
-      <%= f.collection_select :status, Post.statuses_i18n.reject { |k, v| k == 'is_draft' }, :first, :last %>
-    <% end %>
+    <%= f.collection_select :status, Post.statuses_i18n, :first, :last %>
   </div>
   <% if post.new_record? %>
     <%= f.submit '新規作成', class: "btn btn-success mt-4" %>

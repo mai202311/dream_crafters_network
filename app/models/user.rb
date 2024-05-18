@@ -19,8 +19,12 @@ class User < ApplicationRecord
   def self.looks(search, word) #検索機能
       User.where('name LIKE ?', '%' + word + '%')
   end
-  def draft_posts #下書き機能 postsを取得してマイページでは下書きのみを取得
-    self.posts.where(status: Post.statuses[:is_private])
+  def private_posts #下書き機能 postsを取得してマイページでは下書きのみを取得
+    self.posts.private_posts
+  end
+  
+  def public_posts
+    self.posts.public_posts
   end
   
   enum role: { general: 0, admin: 1 }#管理者ログイン

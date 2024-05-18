@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6f">
+    <div class="mx-auto p-2" style="width: 200px;"></div><!-- 余白 -->
       <p><%= link_to "＜戻る",posts_path, class: "btn btn-sm btn-secondary" %></p>
     </div>
     <% if flash[:notice] %>
@@ -14,7 +15,12 @@
         <td></td>
         <td></td>
       <% end %>
+      <!-- 管理者用 -->
+      <% if current_user.admin %>
+        <%= link_to "管理者用削除", post_path(@post.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <% end %>
         <%= form_with model: @post, local:true do |f| %>
+        <div class="mx-auto p-2" style="width: 200px;"></div><!-- 余白 -->
         <p class="border border-dark rounded p-2" style="height: 100px;"><%= @post.body %></p>
       <% end %>
       <% if @post.like?(current_user) %>
