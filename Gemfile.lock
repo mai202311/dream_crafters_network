@@ -44,10 +44,6 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.1.7.7)
       activesupport (= 6.1.7.7)
-    activemodel-serializers-xml (1.0.2)
-      activemodel (> 5.x)
-      activesupport (> 5.x)
-      builder (~> 3.1)
     activerecord (6.1.7.7)
       activemodel (= 6.1.7.7)
       activesupport (= 6.1.7.7)
@@ -78,7 +74,6 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.4)
     byebug (11.1.3)
-    cancancan (3.5.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -98,6 +93,10 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n-views (0.3.7)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     enum_help (0.0.19)
       activesupport (>= 3.0.0)
     erubi (1.12.0)
@@ -110,18 +109,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    kaminari (1.2.2)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.2)
-      kaminari-activerecord (= 1.2.2)
-      kaminari-core (= 1.2.2)
-    kaminari-actionview (1.2.2)
-      actionview
-      kaminari-core (= 1.2.2)
-    kaminari-activerecord (1.2.2)
-      activerecord
-      kaminari-core (= 1.2.2)
-    kaminari-core (1.2.2)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -139,7 +126,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.22.2)
     msgpack (1.7.2)
-    nested_form (0.3.2)
+    mysql2 (0.5.6)
     net-imap (0.4.10)
       date
       net-protocol
@@ -154,8 +141,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     public_suffix (5.0.4)
-    puma (5.6.8)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     racc (1.7.3)
     rack (2.2.8.1)
     rack-mini-profiler (2.3.4)
@@ -189,12 +175,6 @@ GEM
     rails-i18n (7.0.9)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
-    rails_admin (3.1.2)
-      activemodel-serializers-xml (>= 1.0)
-      kaminari (>= 0.14, < 2.0)
-      nested_form (~> 0.3)
-      rails (>= 6.0, < 8)
-      turbo-rails (~> 1.0)
     railties (6.1.7.7)
       actionpack (= 6.1.7.7)
       activesupport (= 6.1.7.7)
@@ -244,10 +224,6 @@ GEM
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
-    turbo-rails (1.5.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -284,18 +260,21 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap-sass (= 3.3.6)
   byebug
-  cancancan
   capybara (>= 3.26)
   devise
   devise-i18n-views
+  dotenv-rails
   enum_help
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  puma (~> 5.0)
+  mysql2
+  net-imap
+  net-pop
+  net-smtp
+  puma (~> 3.11)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.7)
   rails-i18n
-  rails_admin (>= 3.0.0.rc, < 4)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   spring
