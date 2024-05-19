@@ -1,11 +1,24 @@
- <% if user_signed_in? %>
-   <% if current_user.admin %>
-     <% sum = 0 %>
-       <% @users.each do |u| %>
-         <p>メールアドレス:<%= u.email %></p>
-         <p>名前:<%= u.name %>さん</p>
-       <% sum += 1 %>
-       <% end %>
-     <p>登録者合計：<%= sum %></p>
-    <% end %>
-  <% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"> | メールアドレス</th>
+      <th scope="col"> | 名前</th>
+     </tr>
+  </thead>
+  <tbody>
+    <% if user_signed_in? %>
+      <% if current_user.admin %>
+        <% sum = 0 %>
+          <% @users.each do |u| %>
+            <tr>
+               <td><%= u.email %></td>
+               <td><%= u.name %></td>
+                 <% sum += 1 %>
+            </tr>
+          <% end %>
+          登録者合計：<%= sum %>
+      <% end %>
+     <% end %>
+  </tbody>
+</table>
+<div class="mx-auto p-4" style="width: 200px;"></div><!-- 余白 -->
