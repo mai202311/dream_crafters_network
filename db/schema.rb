@@ -24,10 +24,6 @@ ActiveRecord::Schema.define(version: 2024_05_11_115203) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.text "comment"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -43,16 +39,6 @@ ActiveRecord::Schema.define(version: 2024_05_11_115203) do
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "post_tags", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id", "tag_id"], name: "index_post_tags_on_post_id_and_tag_id", unique: true
-    t.index ["post_id"], name: "index_post_tags_on_post_id"
-    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -89,7 +75,5 @@ ActiveRecord::Schema.define(version: 2024_05_11_115203) do
 
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "post_tags", "posts"
-  add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
 end

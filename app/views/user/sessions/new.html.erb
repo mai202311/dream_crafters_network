@@ -4,10 +4,6 @@
     <h1>ログイン</h1>
     <%= form_with(model: @user, url: session_path(@user)) do |f| %>
       <p class="field">
-        <%= f.label :name, for: "inputName" %><br>
-        <%= f.text_field :name, autofocus: true, id: "inputName"%>
-      </p>
-      <p class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </p>

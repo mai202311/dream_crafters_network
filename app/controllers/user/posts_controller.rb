@@ -7,7 +7,6 @@ class User::PostsController < ApplicationController
   def index
     @posts = Post.public_posts
     @user = current_user
-    @tag_list = Tag.all
   end
 
   def create
