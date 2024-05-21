@@ -34,11 +34,7 @@
               <span>♡︎</span>
           <% end %>
       <% end %>
-      <!-- タグリスト -->
-      <% @post_tags.each do |tag| %>
-        <i class="fa-sharp fa-solid fa-tag"></i>
-        <%= link_to tag.name,search_tag_path(tag.id) %>
-      <% end %>
+      
       <!-- コメント機能 -->
       <%= form_with model: [@post, @post_comment] do |f| %>
       <%= f.text_area  :comment, rows:'1', placeholder: "コメントを入力", class: "w-100" %>

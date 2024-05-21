@@ -9,7 +9,7 @@ class User::CommentsController < ApplicationController
 
 
   def destroy
-    comment = PostComment.find(params[:id])  # データ（レコード）を1件取得
+    comment = Comment.find(params[:id])  # データ（レコード）を1件取得
     comment.destroy  # 削除
     redirect_to post_path(comment.post_id)
   end
@@ -17,6 +17,6 @@ class User::CommentsController < ApplicationController
   private
 
   def post_comment_params
-    params.require(:post_comment).permit(:comment)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
+    params.require(:comment).permit(:comment)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
   end
 end

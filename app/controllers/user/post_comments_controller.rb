@@ -9,7 +9,7 @@ class User::PostCommentsController < ApplicationController
 
 
   def destroy
-    comment = Comment.find(params[:id])  # データ（レコード）を1件取得
+    comment = PostComment.find(params[:id])  # データ（レコード）を1件取得
     comment.destroy  # 削除
     redirect_to post_path(comment.post_id)
   end

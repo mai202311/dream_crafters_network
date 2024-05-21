@@ -2,9 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user,          optional: true
   has_many :post_comments,   dependent: :destroy #Post.commentsで、投稿が所有するコメントを取得できる。
   has_many :likes,           dependent: :destroy
-  has_many :post_tags,       dependent: :destroy
-  has_many :tags,            through: :post_tags #投稿タグ、throughで中間テーブルを取得
-  
+
   scope :public_posts, -> { where(status: self.statuses[:is_public]) }
   scope :private_posts, -> { where(status: self.statuses[:is_private]) }
 
@@ -24,7 +22,7 @@ class Post < ApplicationRecord
   def self.looks(search, word)
       Post.where('body LIKE ?', '%' + word + '%')
   end
-  
+
   def self.categories
     {
       dreams: "夢日記",

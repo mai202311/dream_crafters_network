@@ -56,7 +56,6 @@ class User::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new #コメントの取得
-    @post_tags = @post.tags
   end
 
   def destroy
