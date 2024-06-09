@@ -17,7 +17,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +43,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -102,6 +102,7 @@ ja:
       model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
+      not_saved: 登録済みのユーザーです
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
