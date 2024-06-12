@@ -5,7 +5,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.public_posts
+    @posts = Post.public_posts.order(created_at: :desc)
     @user = current_user
   end
 
@@ -56,6 +56,11 @@ class User::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new #コメントの取得
+    if @post.is_private? && @post.user != current_user #非公開の投稿に投稿主しかアクセスできない
+      respond_to do |format|
+        format.html { redirect_to posts_path, notice: 'このページにはアクセスできません' }
+      end
+    end
   end
 
   def destroy

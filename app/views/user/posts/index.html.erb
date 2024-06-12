@@ -43,6 +43,7 @@
         <tr>
           <th scope="col"> | 投稿者</th>
           <th scope="col"> | 本文</th>
+          <th scope="col"> | 投稿日</th>
           <th scope="col"> | カテゴリ</th>
         </tr>
       </thead>
@@ -51,6 +52,7 @@
           <tr>
             <th scope="row"><%= post.user.name %></th>
             <td><%= link_to post.body,post_path(post.id) %></td>
+            <td><%= l post.created_at, format: :short %></td>
             <td>
               <i class="fa-solid fa-tag"></i>
               <% category = Post.categories[:"#{post.category}"] %>
