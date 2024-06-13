@@ -1,6 +1,6 @@
 <%= form_with model: post do |f| %>
   <%= f.label :body, '本文' %></br>
-  <%= f.text_area :body, class:'form-control' %></br>
+  <%= f.text_area :body, placeholder:"80字以内で入力", class:'form-control' %></br>
 
   <div class="form_input">
     <%= f.select :category, [["夢日記", "dreams"], ["明晰夢", "meisekimu"], ["睡眠", "sleeps"],["その他", "others"]], include_blank: "カテゴリ選択" %>
